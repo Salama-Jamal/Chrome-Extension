@@ -3,7 +3,7 @@
     "name": "Note Taker",
     "version": "1.0",
     "description": "A simple note application built as a Chrome extension.",
-    "actions": {
+    "action": {
         "default_popup": "popup.html",
         "default_icon": "/src/icon.png"
     }
