@@ -5,6 +5,6 @@
     "description": "A simple note application built as a Chrome extension.",
     "actions": {
         "default_popup": "popup.html",
-        "default_icon": "icon.png"
+        "default_icon": "/src/icon.png"
     }
 }
