@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "URL Shortener",
+    "name": "Note Taker",
     "version": "1.0",
     "description": "A simple note application built as a Chrome extension.",
     "actions": {
