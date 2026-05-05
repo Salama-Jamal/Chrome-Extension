@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "URL Shortener",
+    "version": "1.0",
+    "description": "A simple note application built as a Chrome extension.",
+    "actions": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    }
+}
