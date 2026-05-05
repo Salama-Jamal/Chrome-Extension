@@ -1,17 +1,47 @@
-// function saveText() {
-//     console.log("Saving text...");
-// }
+let myNote = []
+
+const input = document.getElementById('note')
+const addBtn = document.getElementById('addBtn')
+const noteList = document.getElementById('noteList')
+const noteFromStorage = JSON.parse(localStorage.getItem("myNote"))
+const clearBtn = document.getElementById("delete-btn")
+
+if (noteFromStorage) {
+    myNote = noteFromStorage
+    render(myNote)
+}
+
+
+
+clearBtn.addEventListener("dblclick", function () {
+    localStorage.clear()
+    myNote = []
+    render()
+
+})
 
 
 
 
+addBtn.addEventListener("click", function () {
+    if (input.value.trim() !== "") {
+        myNote.push(input.value)
+    }
+    input.value = ""
+    localStorage.setItem("myNote", JSON.stringify(myNote))
+    render()
+})
 
-// template strings/literals
 
-const recipient = "James"
-// Create a new variable, sender, and set its value to your name
-let sender = 'salama'
-// Use your sender variable instead of "Per"
-const email = `Hey ${recipient}! How is it going? Cheers ${sender}`
 
-console.log(email)
+function render(notes) {
+    listItems = ""
+    for (let i = 0; i < myNote.length; i++) {
+        listItems += `
+        <li>
+        ${myNote[i]}
+        </li>`
+
+    }
+    noteList.innerHTML = listItems
+}
