@@ -12,14 +12,15 @@ if (noteFromStorage) {
     render(myNote)
 }
 
-const tabs = [
-    { URL: "https://www.linkedin.com/in/jamal-salama/" }
-]
+
 
 saveTabBtn.addEventListener("click", function () {
-    myNote.push(tabs[0].URL)
-    localStorage.setItem("myNote", JSON.stringify(myNote))
-    render(myNote)
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        myNote.push(tabs[0].URL)
+        localStorage.setItem("myNote", JSON.stringify(myNote))
+        render(myNote)
+    })
+
 })
 
 clearBtn.addEventListener("dblclick", function () {
