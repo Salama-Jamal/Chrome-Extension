@@ -16,7 +16,7 @@ if (noteFromStorage) {
 
 saveTabBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        myNote.push(tabs[0].URL)
+        myNote.push(tabs[0].url)
         localStorage.setItem("myNote", JSON.stringify(myNote))
         render(myNote)
     })

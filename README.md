@@ -9,6 +9,7 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 ## Features
 
 - **Quick Note Entry**: Type notes directly into the popup interface
+- **Save Tab Link**: One-click button to save the current page URL
 - **Persistent Storage**: Notes are saved to browser localStorage and persist between sessions
 - **Easy Access**: Open notes with one click from the toolbar
 - **Delete Function**: Clear all notes with a double-click on the Delete button
@@ -19,16 +20,16 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 ### User Interaction Flow
 
 1. Click the NoteBook extension icon in the toolbar
-2. Type your note in the input field
-3. Click **Save** to add the note to your list
-4. Your note appears in the list below
+2. **Option A - Save a note**: Type your note in the input field and click **Save**
+3. **Option B - Save current page**: Click **Save Tab** to save the current page URL
+4. Your note/link appears in the list below
 5. Double-click **Delete** to clear all notes at once
 
 ### Technical Architecture
 
 **Frontend Files:**
 
-- `Index.html` - The popup UI with input field, save button, delete button, and note list
+- `Index.html` - The popup UI with input field, save button, save-tab button, delete button, and note list
 - `styles.css` - Styling for the popup interface
 - `script.js` - Core application logic
 
@@ -36,6 +37,7 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 
 - **localStorage Integration**: Notes are stored in the browser's localStorage under the key `"myNote"`
 - **Data Persistence**: On extension load, the app retrieves previously saved notes from storage
+- **Tab URL Capture**: Uses Chrome's `tabs` API to get the current active tab URL
 - **Input Validation**: Only saves non-empty notes (checks `trim()`)
 - **Dynamic Rendering**: Notes are dynamically rendered to the DOM as they're added
 
@@ -53,13 +55,21 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 
 1. Click the NoteBook icon
 2. Type your note in the text field
-3. Click **Save** or press Enter
+3. Click **Save**
 4. The note appears in the list
+
+### Saving Current Page Link
+
+1. Click the NoteBook icon
+2. Click **Save Tab** button
+3. The current page URL is automatically saved
+4. The link appears in your note list
 
 ### Viewing Notes
 
-- All saved notes are displayed in the popup list
+- All saved notes and links are displayed in the popup list
 - Notes persist when you close and reopen the extension
+- Click any note/link to open it (if it's a URL)
 
 ### Clearing Notes
 
@@ -85,12 +95,13 @@ Chrome-Extension/
 - Uses **Manifest V3** (latest Chrome extension standard)
 - Defines popup as `Index.html`
 - Sets icon as `icon.svg`
+- Includes `activeTab` permission to access current tab URL
 
 ### Data Storage
 
 - **Storage Type**: browser localStorage
 - **Storage Key**: `"myNote"`
-- **Data Format**: JSON stringified array of note strings
+- **Data Format**: JSON stringified array of note strings and URLs
 
 ### Browser Compatibility
 
