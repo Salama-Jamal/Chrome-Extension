@@ -1,10 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js"
-const firebaseConfig = {
+import { getDatabase } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js"
 
+const firebaseConfig = {
+    databaseURL: "https://notebook-app-000-default-rtdb.firebaseio.com/"
 }
 
 const app = initializeApp(firebaseConfig)
-console.log(app)
+
+const database = getDatabase(app)
+
 
 let myNote = []
 
