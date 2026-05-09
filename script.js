@@ -1,3 +1,11 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js"
+const firebaseConfig = {
+
+}
+
+const app = initializeApp(firebaseConfig)
+console.log(app)
+
 let myNote = []
 
 const input = document.getElementById('note')
