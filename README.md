@@ -38,6 +38,7 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 - **localStorage Integration**: Notes are stored in the browser's localStorage under the key `"myNote"`
 - **Data Persistence**: On extension load, the app retrieves previously saved notes from storage
 - **Tab URL Capture**: Uses Chrome's `tabs` API to get the current active tab URL
+- **Firebase Initialization**: `script.js` imports Firebase modules and initializes the database for future sync support
 - **Input Validation**: Only saves non-empty notes (checks `trim()`)
 - **Dynamic Rendering**: Notes are dynamically rendered to the DOM as they're added
 
@@ -95,13 +96,14 @@ Chrome-Extension/
 - Uses **Manifest V3** (latest Chrome extension standard)
 - Defines popup as `Index.html`
 - Sets icon as `icon.svg`
-- Includes `activeTab` permission to access current tab URL
+- Includes `tabs` permission to access current tab URL
 
 ### Data Storage
 
 - **Storage Type**: browser localStorage
 - **Storage Key**: `"myNote"`
 - **Data Format**: JSON stringified array of note strings and URLs
+- **Firebase Support**: Firebase SDK is initialized in `script.js` for possible future database sync
 
 ### Browser Compatibility
 
