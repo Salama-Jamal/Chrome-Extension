@@ -78,7 +78,7 @@ NoteBook is a lightweight note-taking extension designed for quick note capture.
 
 ## File Structure
 
-```
+```text
 Chrome-Extension/
 ├── manifest.json      # Extension metadata (Manifest V3)
 ├── Index.html         # Popup UI
