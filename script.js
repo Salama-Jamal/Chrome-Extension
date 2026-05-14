@@ -1,13 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js"
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js"
 
-const firebaseConfig = {
-    databaseURL: "https://notebook-app-000-default-rtdb.firebaseio.com/"
-}
-
-const app = initializeApp(firebaseConfig)
-
-const database = getDatabase(app)
 
 
 let myNote = []
@@ -38,7 +29,7 @@ saveTabBtn.addEventListener("click", function () {
 clearBtn.addEventListener("dblclick", function () {
     localStorage.clear()
     myNote = []
-    render()
+    render(myNote)
 
 })
 
@@ -48,16 +39,16 @@ clearBtn.addEventListener("dblclick", function () {
 addBtn.addEventListener("click", function () {
     if (input.value.trim() !== "") {
         myNote.push(input.value)
+        input.value = ""
+        localStorage.setItem("myNote", JSON.stringify(myNote))
+        render()
     }
-    input.value = ""
-    localStorage.setItem("myNote", JSON.stringify(myNote))
-    render()
 })
 
 
 
 function render(notes) {
-    listItems = ""
+    let listItems = ""
     for (let i = 0; i < myNote.length; i++) {
         listItems += `
         <li>
